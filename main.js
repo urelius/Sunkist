@@ -20,9 +20,6 @@ function createWindow () {
 }
 
 app.whenReady().then(() => {
-    globalShortcut.register('Esc', () => {
-      overlay.show();
-    })
   }).then(createWindow)
 
 
