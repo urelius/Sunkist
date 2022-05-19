@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sunkist Launcher</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="https://universe.flyff.com/assets/themes/flyff_theme/css/sniegu.css" />
+    <link rel="stylesheet" href="https://universe.flyff.com/assets/vendor/bootstrap/css/bootstrap.min.css" />
+    <style type="text/css">
+        body {
+            background: url("bg.jpg");
+            background-size: cover;
+        }
+        #main {
+            display: flex;
+            flex-direction: row;
+        }
+        #news {
+            height: 400px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            width: 500px;
+        }
+
+        #news .content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            color: white !important;
+        }
+
+        a .news-item {
+            color: white !important;
+        }
+
+        .mt-5 {
+            margin-top: 12px !important;
+        }
+
+        #game {
+            background: #555;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #launchpad {
+            height: 50%
+        }
+
+        #launchpad button {
+            margin: auto;
+            display: block;
+            width: 60%;
+            margin-top: 40px;
+        }
+
+        #game #extras {
+            background: #333;
+            flex-grow: 1
+        }
+    </style>
+    <script>
+        window.onload = async () => {
+            const news = await window.api.getNews();
+            const domParser = new DOMParser();
+            const newsDoc = domParser.parseFromString(news, "text/html");
+            document.querySelector('#news .content').innerHTML = newsDoc.querySelector("#news-content .container").innerHTML;
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="news">
+            <div class="content">
+            </div>
+        </div>
+        <div id="game">
+            <div id="launchpad">
+                <button class="btn btn-primary" onclick="window.api.launchGame()">PLAY</button>
+            </div>
+            <div id="extras">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

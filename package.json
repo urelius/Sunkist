@@ -5,12 +5,15 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . Sunkist --overwrite --platform=win32,darwin,linux --icon=./icon.png --out=build"
+    "build": "electron-packager . Sunkist --overwrite --prune --platform=win32,darwin,linux --icon=icon.png --out=build"
   },
   "author": "Adam Smith <axous@protonmail.com>",
   "license": "ISC",
   "devDependencies": {
     "electron": "^18.2.0",
     "electron-packager": "^15.5.1"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
   }
 }
