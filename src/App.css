@@ -4,9 +4,16 @@
   }
 }
 
-.App-header {
-  background-color: rgba(0, 0, 0, 0.5);
+.App {
   min-height: 100vh;
+}
+
+.shade {
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 100vh
+}
+
+.App-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,4 +29,9 @@
 
 button {
   font-size: calc(10px + 2vmin);
+}
+
+#profile {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
