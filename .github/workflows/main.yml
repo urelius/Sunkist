@@ -21,5 +21,17 @@ jobs:
       
       - name: Install deps
         run: npm ci
+
+      - name: Install Snapcraft
+        run: sudo snap install snapcraft --classic
+        if: matrix.os == 'ubuntu-latest'
+
       - name: Build
         run: npm run make
+        env:
+          SNAPCRAFT_BUILD_ENVIRONMENT: host
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: out/make/*

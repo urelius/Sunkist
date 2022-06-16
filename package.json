@@ -25,16 +25,25 @@
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "Sunkist",
-            "iconUrl": "icons/icon.ico",
             "setupIcon": "icons/icon.ico"
           }
         },
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "darwin",
-            "linux"
+            "darwin"
           ]
+        },
+        {
+          "name": "@electron-forge/maker-snap",
+          "config": {
+            "features": {
+              "audio:": true,
+              "mpris": "com.github.axfan.sunkist",
+              "webgl": true
+            },
+            "summary": "Unoffical launcher for Flyff Universe"
+          }
         }
       ],
       "plugins": [
@@ -63,6 +72,7 @@
     "@electron-forge/cli": "^6.0.0-beta.63",
     "@electron-forge/maker-deb": "^6.0.0-beta.63",
     "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-snap": "^6.0.0-beta.64",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
     "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "@electron-forge/plugin-webpack": "6.0.0-beta.63",
