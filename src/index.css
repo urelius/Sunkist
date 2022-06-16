@@ -3,15 +3,27 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#main {
+  height: 100vh;
+  color: white;
+}
+
+.shade {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.flyffLogo {
+  width: 12rem;
+}
+
+#profile {
+  height: 36px;
+}
+
+.newsItem {
+  padding-bottom: 20px
 }
