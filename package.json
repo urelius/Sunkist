@@ -32,19 +32,9 @@
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "darwin"
+            "darwin",
+            "linux"
           ]
-        },
-        {
-          "name": "@electron-forge/maker-snap",
-          "config": {
-            "features": {
-              "audio:": true,
-              "mpris": "com.github.axfan.sunkist",
-              "webgl": true
-            },
-            "summary": "Unoffical launcher for Flyff Universe"
-          }
         }
       ],
       "plugins": [
