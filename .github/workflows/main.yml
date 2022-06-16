@@ -2,6 +2,9 @@ name: Build/release
 
 on: push
 
+env:
+  SNAPCRAFT_BUILD_ENVIRONMENT: host
+
 jobs:
   release:
     runs-on: ${{ matrix.os }}
@@ -28,8 +31,6 @@ jobs:
 
       - name: Build
         run: npm run make
-        env:
-          SNAPCRAFT_BUILD_ENVIRONMENT: host
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
