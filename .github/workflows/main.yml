@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 14
       
-      - name: Build/release Electron app
-        run: |
-          npm ci
-          npm run make
+      - name: Install deps
+        run: npm ci
+      - name: Build
+        run: npm run make
