@@ -12,14 +12,13 @@ if (require('electron-squirrel-startup')) {
 
 let launcherWindow;
 let profiles = [];
-let currentProfile = 'default';
 
 const createLauncherWindow = () => {
   // Create the browser window.
   launcherWindow = new BrowserWindow({
     width: 800,
     height: 400,
-    autoHideMenuBar: true,
+    autoHideMenuBar: false,
     show: false,
     resizable: true,
     webPreferences: {
@@ -55,20 +54,23 @@ const createLauncherWindow = () => {
   });
 };
 
-const createGameWindow = () => {
+const createGameWindow = (profileName) => {
   const flyffWin = new BrowserWindow({
     width: 800,
     height: 600,
     autoHideMenuBar: true,
     show: false, 
     webPreferences: {
-      partition: `persist:${currentProfile}`
+      partition: profileName ? `persist:${profileName}` : undefined
     }
   })
 
   flyffWin.loadURL('https://universe.flyff.com/play');
 
+  const titleProfile = profileName ? `- ${profileName}` : "";
+
   flyffWin.once('ready-to-show', () => {
+    flyffWin.setTitle(`Flyff Universe ${titleProfile}`)
     flyffWin.show()
   });
 }
@@ -78,8 +80,8 @@ ipcMain.handle('news', async () => {
   return result.data;
 })
 
-ipcMain.handle('launchGame', async () => {
-  createGameWindow();
+ipcMain.handle('launchGame', async (event, { profileName }) => {
+  createGameWindow(profileName);
 })
 
 ipcMain.handle('setProfiles', async (event, { newProfiles }) => {
@@ -88,10 +90,6 @@ ipcMain.handle('setProfiles', async (event, { newProfiles }) => {
 })
 
 ipcMain.handle('getProfiles', () => profiles);
-
-ipcMain.handle('switchProfile', async (event, { profileName }) => {
-  currentProfile = profileName;
-})
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

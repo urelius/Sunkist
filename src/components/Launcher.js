@@ -11,13 +11,13 @@ const Launcher = () => {
         const getProfiles = async () => {
             const profiles = await window.api.getProfiles();
             setProfiles(profiles);
+            setCurrentProfile(profiles[0] || '')
         }
         getProfiles()
     }, []);
 
     const changeProfile = (profile) => {
         setCurrentProfile(profile);
-        window.api.switchProfile(profile);
     }
 
     return (
@@ -36,7 +36,7 @@ const Launcher = () => {
                     </Link>
                 </div>
                 <p>
-                    <button type="button" className="bg-sky-600 p-2 w-52 rounded mt-6 hover:bg-sky-700" onClick={window.api.launchGame}>
+                    <button type="button" className="bg-sky-600 p-2 w-52 rounded mt-6 hover:bg-sky-700" onClick={() => window.api.launchGame(currentProfile)}>
                         Play
                     </button>
                 </p>

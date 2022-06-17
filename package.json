@@ -1,7 +1,7 @@
 {
   "name": "sunkist",
   "productName": "Sunkist",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Unoffical launcher for Flyff Universe",
   "main": ".webpack/main",
   "scripts": {
