@@ -18,7 +18,7 @@ const createLauncherWindow = () => {
   launcherWindow = new BrowserWindow({
     width: 800,
     height: 400,
-    autoHideMenuBar: false,
+    autoHideMenuBar: true,
     show: false,
     resizable: true,
     webPreferences: {
