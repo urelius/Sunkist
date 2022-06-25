@@ -1,8 +1,7 @@
-const { app, BrowserWindow, ipcMain, shell, session } = require('electron');
+const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const storage = require('electron-storage');
 const path = require('path');
 const axios = require('axios');
-const { profile } = require('console');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -21,6 +20,7 @@ const createLauncherWindow = () => {
     autoHideMenuBar: true,
     show: false,
     resizable: true,
+    icon: "icons/128x128.png",
     webPreferences: {
       nodeIntegration: true,
       preload: __dirname + '/preload.js'
@@ -56,14 +56,15 @@ const createLauncherWindow = () => {
 
 const createGameWindow = (profileName) => {
   const flyffWin = new BrowserWindow({
-    width: 800,
-    height: 600,
     autoHideMenuBar: true,
     show: false, 
+    icon: "icons/128x128.png",
     webPreferences: {
       partition: profileName ? `persist:${profileName}` : undefined
     }
   })
+
+  flyffWin.maximize();
 
   flyffWin.loadURL('https://universe.flyff.com/play');
 

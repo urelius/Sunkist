@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Users } from 'react-feather';
+import { Users, Maximize2, Minimize2 } from 'react-feather';
 import { Link } from 'react-router-dom';
 
 import logo from '../flyffu.png'
@@ -7,6 +7,7 @@ import logo from '../flyffu.png'
 const Launcher = () => {
     const [currentProfile, setCurrentProfile] = useState()
     const [profiles, setProfiles] = useState([])
+
     useEffect(() => {
         const getProfiles = async () => {
             const profiles = await window.api.getProfiles();
