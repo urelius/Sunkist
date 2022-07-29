@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Settings } from "react-feather";
 import { Link } from "react-router-dom";
 
-import logo from "../flyffu.png";
+import logo from "../imgs/flyffu.png";
 
 const Launcher = () => {
   const [currentProfile, setCurrentProfile] = useState();
