@@ -87,3 +87,10 @@ typings/
 
 # Electron-Forge
 out/
+
+# Visual Studio Code
+.vscode/
+
+# Prettier
+.prettierignore
+.prettierrc.json
