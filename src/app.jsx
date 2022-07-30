@@ -3,7 +3,7 @@ import ReactDom from 'react-dom/client'
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import Main from './modules/Main.js';
-import Profiles from './modules/Profiles.js'
+import Settings from './modules/Settings.js'
 
 const container = document.getElementById('root');
 const root = ReactDom.createRoot(container);
@@ -13,7 +13,7 @@ root.render(
     <HashRouter>
         <Routes>
             <Route index element={<Main />} />
-            <Route path="/profiles" element={<Profiles />} />
+            <Route path="/settings" element={<Settings />} />
         </Routes>
     </HashRouter>
 );
