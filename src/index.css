@@ -28,19 +28,31 @@ body {
   padding-bottom: 20px
 }
 
-.scrollable::-webkit-scrollbar-track
-{
+.scrollable::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   background-color: #F5F5F5;
 }
 
-.scrollable::-webkit-scrollbar
-{
+.scrollable::-webkit-scrollbar {
   width: 4px;
   background-color: #F5F5F5;
 }
 
-.scrollable::-webkit-scrollbar-thumb
-{
+.scrollable::-webkit-scrollbar-thumb {
   background-color: #F90;
+}
+
+.selectClass:hover {
+  cursor: pointer;
+}
+.greyClick {
+  filter: grayscale(100%)
+}
+.greyClick:hover {
+  filter: grayscale(0%)
+}
+
+.hint {
+  text-align: center;
+  font-size: small;
 }

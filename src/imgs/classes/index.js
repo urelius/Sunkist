@@ -1,5 +1,6 @@
 // import all images
 
+import iVagrant from "./iVagrant.png";
 import iAcrobat from "./iAcrobat.png";
 import iMagician from "./iMagician.png";
 import iAssist from "./iAssist.png";
@@ -14,7 +15,8 @@ import iBlade from "./iBlade.png";
 import iKnight from "./iKnight.png";
 
 // export classes
-export {
+export default {
+  iVagrant,
   iAcrobat,
   iAssist,
   iMagician,

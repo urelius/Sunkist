@@ -4,7 +4,7 @@ import backgrounds from "../imgs/bgs";
 import News from "../components/News";
 import Launcher from "../components/Launcher";
 
-const Main = () => {
+function Main() {
   const [background, setBackground] = useState();
 
   useEffect(() => {
@@ -28,6 +28,6 @@ const Main = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Main;
