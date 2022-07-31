@@ -49,7 +49,7 @@ const Settings = () => {
   const profilesContent = () => {
     return profiles.map((current, index) => (
       <div className="flex flex-row">
-        <image src={`url(${iAcrobat}`} width={24} />
+        <img src={iAcrobat} width={24} />
         <div>{current}</div>
       </div>
     ));
