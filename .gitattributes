@@ -1,2 +1,4 @@
-src/imgs/bgs/*.jpg filter=lfs diff=lfs merge=lfs -text
-src/imgs/bgs/*.png filter=lfs diff=lfs merge=lfs -text
+src/imgs/*.jpg filter=lfs diff=lfs merge=lfs -text
+src/imgs/*.png filter=lfs diff=lfs merge=lfs -text
+src/imgs/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+src/imgs/**/*.png filter=lfs diff=lfs merge=lfs -text

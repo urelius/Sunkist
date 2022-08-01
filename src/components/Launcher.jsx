@@ -5,7 +5,7 @@ import logo from "../imgs/flyffu.png";
 
 function Launcher() {
   const [currentProfile, setCurrentProfile] = useState();
-  const [profiles, setProfiles] = useState([]); // { name: '', class: '' }
+  const [profiles, setProfiles] = useState([]); // { name: '', class: '', id: '' }
 
   useEffect(() => {
     const getProfiles = async () => {
@@ -13,7 +13,7 @@ function Launcher() {
       /// //////////////////////////////////////////////////
       // breaking Change fix: moving the old profilenames //
       //                   into the new profile object as //
-      //                    name and id (to keep profile) //
+      //                   name and id (to keep profiles) //
       /// ////////////////////// Remove in newer Version ///
       if (allProfiles.some((e) => typeof e === "string")) {
         allProfiles.forEach((name, index) => {
