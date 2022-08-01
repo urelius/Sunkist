@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import { UserPlus, UserX, X, CornerDownLeft } from "react-feather";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 import iClasses from "../imgs/classes";
 
 function Settings() {
-  const [profiles, setProfiles] = useState([]);
+  const [profiles, setProfiles] = useState([]); // { name: '', class: '' }
   const [selectedClass, setSelectedClass] = useState("none");
   const [showClassSelection, setShowClassSelection] = useState(false);
 
@@ -20,7 +21,7 @@ function Settings() {
 
   const createProfile = () => {
     const profileName = profileNameRef.current.value;
-    const profile = { name: profileName, class: selectedClass };
+    const profile = { name: profileName, class: selectedClass, id: uuidv4() };
     if (!profiles.includes(profile) && profileName.length > 1) {
       const newProfiles = [...profiles, profile];
       setProfiles(newProfiles);

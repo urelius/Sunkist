@@ -1,39 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { Profiler, useEffect, useState } from "react";
 import { Settings } from "react-feather";
 import { Link } from "react-router-dom";
-
 import logo from "../imgs/flyffu.png";
 
 function Launcher() {
   const [currentProfile, setCurrentProfile] = useState();
-  const [profiles, setProfiles] = useState([]);
+  const [profiles, setProfiles] = useState([]); // { name: '', class: '' }
 
   useEffect(() => {
     const getProfiles = async () => {
       const allProfiles = await window.api.getProfiles();
       /// //////////////////////////////////////////////////
       // breaking Change fix: moving the old profilenames //
-      //                      into the new profile object //
-      /// //////////////////////// Remove in newer Version /
+      //                   into the new profile object as //
+      //                    name and id (to keep profile) //
+      /// ////////////////////// Remove in newer Version ///
       if (allProfiles.some((e) => typeof e === "string")) {
         allProfiles.forEach((name, index) => {
           if (typeof name === "string") {
-            profiles[index] = { name, class: "iVagrant" };
+            profiles[index] = { name, class: "iVagrant", id: name };
           }
         });
-        window.api.setProfiles(allProfiles);
       }
-      /// /////////////////////// Remove in newer Version //
+      window.api.setProfiles(allProfiles);
+      /// ////////////////////// Remove in newer Version ///
       /// //////////////////////////////////////////////////
       setProfiles(allProfiles);
-      setCurrentProfile(profiles[0] || "");
+      setCurrentProfile(allProfiles[0] || "");
     };
     getProfiles();
   }, []);
-
-  const changeProfile = (profile) => {
-    setCurrentProfile(profile);
-  };
 
   return (
     <div id="launcher" className="flex-1">
@@ -46,12 +42,12 @@ function Launcher() {
         <div className="m-auto flex mt-6 w-56">
           <select
             id="profile"
-            value={currentProfile}
-            onChange={(e) => changeProfile(e.target.value)}
+            value={currentProfile?.id}
+            onChange={(e) => setCurrentProfile(profiles.find(p => p.id === e.target.value))}
             className="text-slate-900 p-2 flex-auto w-40 rounded-l"
           >
             {profiles.map((profile) => (
-                <option key={profile.name} value={profile.name}>
+                <option key={profile.id} value={profile.id}>
                   {profile.name}
                 </option>
               ))}

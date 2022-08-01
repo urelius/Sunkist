@@ -56,13 +56,13 @@ const createLauncherWindow = () => {
   });
 };
 
-const createGameWindow = (profileName) => {
+const createGameWindow = (profile) => {
   const flyffWin = new BrowserWindow({
     autoHideMenuBar: true,
     show: false,
     icon: "icons/128x128.png",
     webPreferences: {
-      partition: profileName ? `persist:${profileName}` : undefined,
+      partition: profile.id ? `persist:${profile.id}` : undefined,
     },
   });
 
@@ -70,7 +70,7 @@ const createGameWindow = (profileName) => {
 
   flyffWin.loadURL("https://universe.flyff.com/play");
 
-  const titleProfile = profileName ? `- ${profileName}` : "";
+  const titleProfile = profile.name ? `- ${profile.name} | ${profile.id}` : "";
 
   flyffWin.once("ready-to-show", () => {
     flyffWin.setTitle(`Flyff Universe ${titleProfile}`);
@@ -83,8 +83,8 @@ ipcMain.handle("news", async () => {
   return result.data;
 });
 
-ipcMain.handle("launchGame", async (event, { profileName }) => {
-  createGameWindow(profileName);
+ipcMain.handle("launchGame", async (event, profile) => {
+  createGameWindow(profile);
 });
 
 ipcMain.handle("setProfiles", async (event, { newProfiles }) => {
