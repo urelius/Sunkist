@@ -14,7 +14,7 @@ function Main() {
   return (
     <div
       style={{
-        backgroundImage: `url(${background}`,
+        backgroundImage: background && `url(${background})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
