@@ -1,11 +1,13 @@
 {
-    "extends": ["airbnb", "prettier"],
-    "plugins": ["prettier"],
+    "extends": ["airbnb"],
     "env": {
       "browser": true
     },
     "settings": {
       "import/core-modules": ["electron", "tailwindcss", "autoprefixer"]
+    },
+    "parserOptions": {
+      "ecmaVersion": 2020
     },
     "rules": {
       "global-require": "warn",

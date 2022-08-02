@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import backgrounds from "../imgs/bgs";
-import News from "../components/News";
-import Launcher from "../components/Launcher";
+import backgrounds from '../imgs/bgs';
+import News from '../components/News';
+import Launcher from '../components/Launcher';
 
 function Main() {
   const [background, setBackground] = useState();
@@ -15,8 +15,8 @@ function Main() {
     <div
       style={{
         backgroundImage: background && `url(${background})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
       id="main"
     >

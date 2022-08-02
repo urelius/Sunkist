@@ -1,7 +1,7 @@
-import React, { Profiler, useEffect, useState } from "react";
-import { Settings } from "react-feather";
-import { Link } from "react-router-dom";
-import logo from "../imgs/flyffu.png";
+import React, { useEffect, useState } from 'react';
+import { Settings } from 'react-feather';
+import { Link } from 'react-router-dom';
+import logo from '../imgs/flyffu.png';
 
 function Launcher() {
   const [currentProfile, setCurrentProfile] = useState();
@@ -15,10 +15,10 @@ function Launcher() {
       //                   into the new profile object as //
       //                   name and id (to keep profiles) //
       /// ////////////////////// Remove in newer Version ///
-      if (allProfiles.some((e) => typeof e === "string")) {
+      if (allProfiles.some((e) => typeof e === 'string')) {
         allProfiles.forEach((name, index) => {
-          if (typeof name === "string") {
-            profiles[index] = { name, class: "iVagrant", id: name };
+          if (typeof name === 'string') {
+            profiles[index] = { name, class: 'iVagrant', id: name };
           }
         });
       }
@@ -26,7 +26,7 @@ function Launcher() {
       /// ////////////////////// Remove in newer Version ///
       /// //////////////////////////////////////////////////
       setProfiles(allProfiles);
-      setCurrentProfile(allProfiles[0] || "");
+      setCurrentProfile(allProfiles[0] || '');
     };
     getProfiles();
   }, []);
@@ -43,14 +43,14 @@ function Launcher() {
           <select
             id="profile"
             value={currentProfile?.id}
-            onChange={(e) => setCurrentProfile(profiles.find(p => p.id === e.target.value))}
+            onChange={(e) => setCurrentProfile(profiles.find((p) => p.id === e.target.value))}
             className="text-slate-900 p-2 flex-auto w-40 rounded-l"
           >
             {profiles.map((profile) => (
-                <option key={profile.id} value={profile.id}>
-                  {profile.name}
-                </option>
-              ))}
+              <option key={profile.id} value={profile.id}>
+                {profile.name}
+              </option>
+            ))}
           </select>
           <Link to="/settings">
             <Settings
