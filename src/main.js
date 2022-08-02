@@ -3,6 +3,10 @@ const storage = require("electron-storage");
 const axios = require("axios");
 const ess = require("electron-squirrel-startup");
 
+// const { webContents } = require('electron')
+// webContents.getAllWebContents().forEach(contents => {
+//   console.log(contents.session); 
+// });
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (ess) {
@@ -20,7 +24,7 @@ const createLauncherWindow = () => {
     height: 400,
     autoHideMenuBar: true,
     show: false,
-    resizable: true,
+    resizable: false,
     icon: "icons/128x128.png",
     webPreferences: {
       nodeIntegration: true,

@@ -1,13 +1,16 @@
-import React, { useEffect, useState, useRef } from "react";
-import { UserPlus, UserX, X, CornerDownLeft } from "react-feather";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useRef } from 'react';
+import {
+  UserPlus, UserX, X, Trash2, CornerDownLeft,
+} from 'react-feather';
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import iClasses from "../imgs/classes";
+import iClasses from '../imgs/classes';
 
 function Settings() {
   const [profiles, setProfiles] = useState([]); // { name: '', class: '' }
-  const [selectedClass, setSelectedClass] = useState("none");
+  const [selectedClass, setSelectedClass] = useState('none');
   const [showClassSelection, setShowClassSelection] = useState(false);
+  const [profileToDelete, setProfileToDelete] = useState();
 
   const profileNameRef = useRef();
   useEffect(() => {
@@ -26,33 +29,58 @@ function Settings() {
       const newProfiles = [...profiles, profile];
       setProfiles(newProfiles);
       window.api.setProfiles(newProfiles);
-      setShowClassSelection(false)
-      profileNameRef.current.value = ''
+      setSelectedClass('none');
+      setShowClassSelection(false);
+      profileNameRef.current.value = '';
     }
   };
-  
+
   const removeProfile = (index) => {
     const newProfiles = [...profiles];
     newProfiles.splice(index, 1);
+    setProfileToDelete();
     setProfiles(newProfiles);
     window.api.setProfiles(newProfiles);
   };
 
-  const profilesContent = () =>
-    profiles.map((profile, index) => (
-      <div className="flex flex-row" key={profile.name}>
-          {profile.class !== "none"
+  const profilesContent = () => profiles.map((profile, index) => (
+    index !== profileToDelete
+      ? (
+        <div className="flex flex-row h-9" key={profile.name}>
+          {profile.class !== 'none'
             ? <img src={iClasses[profile.class]} className="h-9 w-9" />
-            : <div className="h-9 w-9" />
-          }
-          <div className="flex-auto h-full mx-2 my-auto">{profile.name}</div>
+            : <div className="h-9 w-9" />}
+          <div className="flex flex-auto items-center mx-2">{profile.name}</div>
           <UserX
-            className="bg-red-600 flex-grow-0 hover:bg-red-700 rounded p-2 my-auto text-white"
+            className="bg-red-600 hover:bg-red-700 rounded p-2 content-center my-auto text-white"
+            size={34}
+            onClick={() => setProfileToDelete(index)}
+          />
+        </div>
+      )
+      : (
+        <div className="flex flex-row h-9" key={profile.name}>
+          <Trash2
+            className="bg-red-600 hover:bg-red-700 rounded p-2 my-auto text-white"
             size={34}
             onClick={() => removeProfile(index)}
           />
-      </div>
-    ));
+          <div className="flex flex-auto items-center mx-2">
+            <b>
+              Delete profile &apos;
+              {profile.name}
+              &apos; ?
+
+            </b>
+          </div>
+          <X
+            className="bg-red-600 hover:bg-red-700 rounded p-2 my-auto text-white"
+            size={34}
+            onClick={() => setProfileToDelete()}
+          />
+        </div>
+      )
+  ));
 
   const selectClassContainer = (
     <div className="mt-2 py-2 rounded bg-white align-middle grid grid-cols-8">
@@ -76,10 +104,10 @@ function Settings() {
             setShowClassSelection(false);
           }}
           className={`selectClass font-thin mx-auto
-            ${iClass !== selectedClass ? "greyClick" : ""}
-            ${index === 0 ? "col-span-8" : ""}
-            ${index !== 0 && index <= 4 ? "col-span-2 mb-2" : ""}
-            ${index > 4 ? "col-span-1" : ""}
+            ${iClass !== selectedClass ? 'greyClick' : ''}
+            ${index === 0 ? 'col-span-8' : ''}
+            ${index !== 0 && index <= 4 ? 'col-span-2 mb-2' : ''}
+            ${index > 4 ? 'col-span-1' : ''}
           `}
         />
       ))}
@@ -96,13 +124,13 @@ function Settings() {
             <div className="flex flex-col w-9">
               <img
                 src={
-                  selectedClass === "none"
+                  selectedClass === 'none'
                     ? iClasses.iVagrant
                     : iClasses[selectedClass]
                 }
                 width={36}
                 className={`rounded-l selectClass ${
-                  selectedClass === "none" && "greyClick"
+                  selectedClass === 'none' && 'greyClick'
                 }`}
                 onClick={() => setShowClassSelection(true)}
               />
@@ -121,7 +149,7 @@ function Settings() {
 
           {showClassSelection && selectClassContainer}
 
-          <div className="bg-white w-80 m-auto rounded mt-4 p-0.5 flex flex-col">
+          <div className="bg-white m-auto rounded mt-4 p-0.5 flex flex-col">
             {profilesContent()}
           </div>
         </div>
