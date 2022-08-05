@@ -39,7 +39,7 @@ body {
 }
 
 .scrollable::-webkit-scrollbar-thumb {
-  background-color: #F90;
+  background-color: #f59e0b;
 }
 
 .selectClass:hover {
@@ -55,4 +55,18 @@ body {
 .hint {
   text-align: center;
   font-size: small;
+}
+
+.square {
+  color: white
+}
+
+.checkedSquare polyline {
+  color:#22c55e
+}
+
+.errorText {
+  color: red;
+  font-size: small;
+  font-weight: 600;
 }
