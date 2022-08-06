@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { X } from 'react-feather';
 import backgrounds from '../imgs/bgs';
 import News from '../components/News';
 import Launcher from '../components/Launcher';
@@ -26,6 +26,7 @@ function Main() {
           <Launcher />
         </div>
       </div>
+      <X size={32} id="closeWindow" onClick={() => window.api.closeWindow()} className="absolute top-0 closeButton right-0 m-2 hover:animate-pulse" />
     </div>
   );
 }

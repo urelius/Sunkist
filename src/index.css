@@ -70,3 +70,11 @@ body {
   font-size: small;
   font-weight: 600;
 }
+
+#closeWindow:hover {
+  color: rgb(220 38 38);
+  transition-property: color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+  cursor: pointer;
+}

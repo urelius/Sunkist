@@ -5,4 +5,5 @@ contextBridge.exposeInMainWorld('api', {
   launchGame: (profile) => ipcRenderer.invoke('launchGame', profile),
   getProfiles: () => ipcRenderer.invoke('getProfiles'),
   setProfiles: (newProfiles) => ipcRenderer.invoke('setProfiles', { newProfiles }),
+  closeWindow: () => ipcRenderer.invoke('closeWindow'),
 });

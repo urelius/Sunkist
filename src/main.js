@@ -22,6 +22,7 @@ let profiles = [];
 const createLauncherWindow = () => {
   // Create the browser window.
   launcherWindow = new BrowserWindow({
+    titleBarStyle: 'hidden',
     width: 800,
     height: 400,
     autoHideMenuBar: true,
@@ -99,7 +100,7 @@ ipcMain.handle('setProfiles', async (event, { newProfiles }) => {
 });
 
 ipcMain.handle('getProfiles', () => profiles);
-
+ipcMain.handle('closeWindow', () => app.quit());
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
