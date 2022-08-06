@@ -39,7 +39,7 @@ function Launcher() {
           className="flyffLogo block m-auto pr-3"
           alt="Flyff Universe"
         />
-        <div className="m-auto flex mt-6 w-56">
+        <div className="noDrag m-auto flex mt-6 w-56">
           <select
             id="profile"
             value={currentProfile?.id}
@@ -62,7 +62,7 @@ function Launcher() {
         <div className="m-auto flex w-56">
           <button
             type="button"
-            className="bg-sky-600 p-2 flex-auto rounded mt-6 hover:bg-sky-700"
+            className="noDrag bg-sky-600 p-2 flex-auto rounded mt-6 hover:bg-sky-700"
             onClick={() => window.api.launchGame(currentProfile)}
           >
             Play

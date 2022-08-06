@@ -44,7 +44,7 @@ function News() {
   return (
     <div id="news" className="flex-1 mt-8">
       <h3 className="text-xl pb-2 pl-2">News</h3>
-      <div className="shade p-6">
+      <div className="noDrag shade p-6">
         <table><tbody>{newsContent()}</tbody></table>
       </div>
     </div>

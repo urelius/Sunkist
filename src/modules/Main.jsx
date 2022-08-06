@@ -10,7 +10,6 @@ function Main() {
   useEffect(() => {
     setBackground(backgrounds[Math.floor(Math.random() * backgrounds.length)]);
   }, []);
-
   return (
     <div
       style={{
@@ -20,13 +19,13 @@ function Main() {
       }}
       id="main"
     >
-      <div className="shade min-h-screen">
-        <div className="container flex m-auto py-10">
+      <div className="shade py-16 px-4 min-h-screen">
+        <div className="container flex m-auto">
           <News />
           <Launcher />
         </div>
       </div>
-      <X size={32} id="closeWindow" onClick={() => window.api.closeWindow()} className="absolute top-0 closeButton right-0 m-2 hover:animate-pulse" />
+      <X size={32} id="closeWindow" onClick={() => window.api.closeWindow()} className="noDrag absolute top-0 closeButton right-0 m-2 hover:animate-pulse" />
     </div>
   );
 }

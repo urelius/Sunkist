@@ -10,8 +10,11 @@ body {
 #main {
   height: 100vh;
   color: white;
+  -webkit-app-region: drag;
 }
-
+.noDrag {
+  -webkit-app-region: no-drag;
+}
 .shade {
   background-color: rgba(0, 0, 0, 0.5);
 }
