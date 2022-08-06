@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   UserPlus, UserX, X, Trash2, CornerDownLeft, Square, CheckSquare,
 } from 'react-feather';
@@ -175,9 +175,11 @@ function Settings() {
             {profilesContent()}
           </div>
         </div>
-        <div className="flex flex-col w-9">
-          <Link to="/" className="p-1">
-            <CornerDownLeft className="text-white" />
+        <div className="flex flex-col w-12">
+          <X size={32} className="text-gray-500 m-2 mb-6" />
+          { [...Array(6)].map(() => <div className="w-12 h-12" />) }
+          <Link to="/">
+            <CornerDownLeft size={32} className="text-white m-2 hover:text-orange-400 transition-colors" />
           </Link>
         </div>
       </div>
