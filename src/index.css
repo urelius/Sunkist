@@ -61,15 +61,26 @@ body {
 }
 
 .square {
-  color: white
+  color: white;
+  transition: color 0.5s ease;
 }
-
+.square:hover {
+  color: #22c55e;
+}
 .checkedSquare polyline {
-  color:#22c55e
+  color:#22c55e;
+  opacity: 1;
+  transition: color 0.5s ease;
+  transition: opacity 0.5s ease;
 }
-
+.checkedSquare:hover {
+  color: rgb(220 38 38);
+}
+.checkedSquare:hover polyline {
+  opacity: 0;
+}
 .errorText {
-  color: red;
+  color: rgb(220 38 38);
   font-size: small;
   font-weight: 600;
 }

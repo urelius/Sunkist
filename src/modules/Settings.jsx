@@ -127,8 +127,12 @@ function Settings() {
         <div className="basis-7/12 overflow-y-scroll overflow-x-hidden scrollable p-4">
           <h2 className="text-center text-xl text-white">Settings</h2>
           <div className="mt-6 flex text-center">
+            {/*
+            Use this Icons for checked/unchecked options
+
             <Square className="square" />
             <CheckSquare className="square checkedSquare" />
+             */}
           </div>
         </div>
         <div className="basis-5/12 overflow-y-scroll overflow-x-hidden scrollable p-4">
