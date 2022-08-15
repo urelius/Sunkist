@@ -3,6 +3,8 @@ const storage = require('electron-storage');
 const path = require('path');
 const axios = require('axios');
 
+import { createGameWindow } from './game';
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   // eslint-disable-line global-require
@@ -53,28 +55,6 @@ const createLauncherWindow = () => {
     launcherWindow.show()
   });
 };
-
-const createGameWindow = (profileName) => {
-  const flyffWin = new BrowserWindow({
-    autoHideMenuBar: true,
-    show: false, 
-    icon: "icons/128x128.png",
-    webPreferences: {
-      partition: profileName ? `persist:${profileName}` : undefined
-    }
-  })
-
-  flyffWin.maximize();
-
-  flyffWin.loadURL('https://universe.flyff.com/play');
-
-  const titleProfile = profileName ? `- ${profileName}` : "";
-
-  flyffWin.once('ready-to-show', () => {
-    flyffWin.setTitle(`Flyff Universe ${titleProfile}`)
-    flyffWin.show()
-  });
-}
 
 ipcMain.handle('news', async () => {
   const result = await axios.get("https://universe.flyff.com/news");
