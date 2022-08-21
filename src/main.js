@@ -100,7 +100,7 @@ ipcMain.handle('setProfiles', async (event, { newProfiles }) => {
 });
 
 ipcMain.handle('getProfiles', () => profiles);
-ipcMain.handle('closeWindow', () => app.quit());
+ipcMain.handle('closeWindow', () => launcherWindow.close()); // dont app.quit() here <-- all windows will close instead of only the launcher
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
