@@ -18,7 +18,9 @@ body {
 .shade {
   background-color: rgba(0, 0, 0, 0.5);
 }
-
+.lightShade {
+  background-color: rgba(0, 0, 0, 0.3);
+}
 .flyffLogo {
   width: 12rem;
 }

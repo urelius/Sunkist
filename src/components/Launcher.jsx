@@ -32,7 +32,7 @@ function Launcher() {
   }, []);
 
   return (
-    <div id="launcher" className="flex-1">
+    <div id="launcher" className="flex-1 basis-1/2 mx-6">
       <div className="flex-1 text-center">
         <img
           src={logo}

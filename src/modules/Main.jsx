@@ -19,8 +19,8 @@ function Main() {
       }}
       id="main"
     >
-      <div className="shade py-16 px-4 min-h-screen">
-        <div className="container flex m-auto">
+      <div className="lightShade py-8 px-8 h-screen flex items-center justify-center">
+        <div className="flex w-full">
           <News />
           <Launcher />
         </div>
