@@ -8,8 +8,8 @@ const mapNewsToData = (news) => {
     news.forEach((current) => {
         newsData.push({
             link: current.attributes.href.value,
-            date: current.querySelector("p").innerHTML,
-            title: current.querySelector("h4").innerHTML
+            text: current.querySelector("h6").innerHTML,
+            title: current.querySelector("h5").innerHTML
         })
     })
 
@@ -24,7 +24,7 @@ const News = () => {
             const news = await window.api.getNews();
             const domParser = new DOMParser();
             const newsDoc = domParser.parseFromString(news, "text/html");
-            const recentNews = newsDoc.querySelectorAll("#nav-1 #recent-announcements a");
+            const recentNews = newsDoc.querySelectorAll("#nav-1 .card a");
             setNews(mapNewsToData(recentNews));
         };
         getNews()
@@ -32,19 +32,19 @@ const News = () => {
 
 
     const newsContent = () => {
-        return news.map(({date, title, link}, index) => (
+        return news.map(({text, title, link}, index) => (
             <tr key={index} className="pt-2 block">
-                <td className="text-sm w-24">{date}</td>
-                <td><a className="text-sky-600 hover:text-sky-700" href={link}>{title}</a></td>
+                <td><a className="text-sky-600 hover:text-sky-700" href={link}>{title}</a>
+                </td>
             </tr>
         ))
     }
 
 
     return (
-        <div id="news" className='flex-1 mt-8'>
+        <div id="news" className='flex-1 mt-1'>
              <h3 className='text-xl pb-2 pl-2'>News</h3>
-            <div className='shade p-6'>
+            <div className='shade p-3'>
                 <table>
                     {newsContent()}
                 </table>
