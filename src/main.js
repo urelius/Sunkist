@@ -18,7 +18,7 @@ const createLauncherWindow = () => {
   // Create the browser window.
   launcherWindow = new BrowserWindow({
     width: 800,
-    height: 400,
+    height: 420,
     autoHideMenuBar: true,
     show: false,
     resizable: true,
@@ -93,6 +93,3 @@ app.on('activate', () => {
     createLauncherWindow();
   }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
